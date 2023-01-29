@@ -1,0 +1,12 @@
+.auth{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.auth-backdrop{
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(94, 66, 66, 0.267);
+  display: flex;
+}
