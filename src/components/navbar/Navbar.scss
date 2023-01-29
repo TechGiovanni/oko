@@ -1,20 +1,32 @@
-.navbar-container {
+.navbar {
   width: 100%;
   height: 56px;
   border: 2px solid red;
   // overflow: hidden;
+
+}
+
+.navbar-container {
+  width: 100vw;
+  max-width: 1150px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0, 24px, 0, 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .logo-container{
-  width: 150px;
-  // height: 10px;
-  // border: 2px solid red;
+  width: 118px;
+
 
   img{
     width: 100%;
     height: 100%;
   }
+}
+
+.nav-buttons{
+  display: flex;
 }
