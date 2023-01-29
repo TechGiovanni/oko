@@ -1,15 +1,18 @@
 import PropTypes from 'prop-types';
-// import { useRef } from 'react-router-dom';
 import '@components/auth/Auth.scss';
+import LoginOptions from '@components/auth/LoginOptions/LoginOptions';
 
 const Auth = ({ setOpenAuthTab }) => {
-  // const backdrop = useRef();s
-
   const handleCloseAuthTabs = () => {
     setOpenAuthTab(false);
   };
 
-  return <div className="auth-container" onClick={handleCloseAuthTabs}></div>;
+  return (
+    <div className="auth">
+      <LoginOptions />
+      <div className="auth-backdrop" onClick={handleCloseAuthTabs}></div>
+    </div>
+  );
 };
 
 Auth.propTypes = {

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
+// stylesheet
+import styled from 'styled-components';
 import './Navbar.scss';
 
 // component
@@ -10,17 +12,31 @@ import { FaEllipsisV } from 'react-icons/fa';
 import DarkMode from '@components/navbar/darkmode/DarkMode';
 import Auth from '@components/auth/Auth';
 
+const Backdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100vh;
+`;
+
 const Navbar = () => {
-  const [openAuthTab, setOpenAuthTab] = useState(false);
+  const [openAuthTab, setOpenAuthTab] = useState(true);
 
   const handleLoginCLick = () => {
-    console.log('clicking');
     setOpenAuthTab(true);
   };
 
   return (
     <div>
-      {openAuthTab && <Auth setOpenAuthTab={setOpenAuthTab} />}
+      {' '}
+      {openAuthTab && (
+        <Backdrop>
+          <Auth setOpenAuthTab={setOpenAuthTab} />
+        </Backdrop>
+      )}
       <nav className="navbar">
         <div className="navbar-container">
           <div className="logo-container">
