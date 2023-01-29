@@ -127,3 +127,69 @@ code {
    border-collapse: collapse;
    border-spacing: 0;
  }
+
+ :root {
+	--main-text-lightMode: rgb(58, 58, 58);
+	--main-text-darkMode: rgb(233, 239, 239);
+	--main-bg-lightMode: rgb(233, 239, 239);
+	--main-bg-darkMode: rgb(23, 27, 33);
+	/* navbar  */
+	--nav-bg-color-lightMode: rgb(233, 239, 239);
+	--nav-bg-color-darkMode: rgb(23, 27, 33);
+	--nav-text-color-lightMode: rgb(58, 58, 58);
+	--nav-text-color-darkMode: rgb(233, 239, 239);
+	--nav-btn-color-lightMode: rgb(233, 239, 239);
+	--nav-btn-color-darkMode: rgb(23, 27, 33);
+	--nav-btn-border-lightMode: #8e8e8e;
+	--nav-btn-border-darkMode: rgb(200, 200, 200);
+	/* header  */
+	--hero-bg-header-lightMode: rgb(233, 239, 239);
+	--hero-bg-header-darkMode: #0d1117;
+	--hero-bg-border-lightMode: rgb(200, 200, 200);
+	--hero-bg-border-darkMode: #161b22;
+	--hero-text-lightMode: #484848;
+	--hero-text-darkMode: rgb(233, 239, 239);
+	/* accent colors  */
+	--decoration-text-green-lightMode: rgb(21, 170, 81);
+	--decoration-text-green-darkMode: rgb(23, 215, 100);
+	--decoration-border-green-lightMode: rgb(40, 196, 102);
+	--decoration-border-green-darkMode: rgb(38, 241, 119);
+	/* footer  */
+}
+body.lightMode {
+	/* main colors */
+	--main-text: var(--main-text-lightMode);
+	--main-bg: var(--main-bg-lightMode);
+	/* navbar  */
+	--nav-bg-color: var(--nav-bg-color-lightMode);
+	--nav-text-color: var(--nav-text-color-lightMode);
+	--nav-btn-color: var(--nav-btn-color-lightMode);
+	--nav-btn-border-color: var(--nav-btn-border-lightMode);
+	/* header */
+	--bg-secondary: var(--hero-bg-header-lightMode);
+	--bg-header-border: var(--hero-bg-border-lightMode);
+	--text-header: var(--hero-text-lightMode);
+	/* main  */
+	--decoration-green: var(--decoration-text-green-lightMode);
+	--decoration-border-green: var(--decoration-border-green-lightMode);
+	/* footer  */
+}
+
+body.darkMode {
+	/* main colors */
+	--main-text: var(--main-text-darkMode);
+	--main-bg: var(--main-bg-darkMode);
+	/* navbar  */
+	--nav-bg-color: var(--nav-bg-color-darkMode);
+	--nav-text-color: var(--nav-text-color-darkMode);
+	--nav-btn-color: var(--nav-btn-color-darkMode);
+	--nav-btn-border-color: var(--nav-btn-border-darkMode);
+	/* header  */
+	--bg-secondary: var(--hero-bg-header-darkMode);
+	--bg-header-border: var(--hero-bg-border-darkMode);
+	--text-header: var(--hero-text-darkMode);
+	/* main  */
+	--decoration-green: var(--decoration-text-green-darkMode);
+	--decoration-border-green: var(--decoration-border-green-darkMode);
+	/* footer  */
+}

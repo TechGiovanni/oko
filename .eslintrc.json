@@ -48,6 +48,9 @@
       "semi": [
           2,
           "always"
+      ],
+      "no-unused-vars": [
+        "error", { "vars": "all", "args": "none", "ignoreRestSiblings": false, "destructuredArrayIgnorePattern": "^_"  }
       ]
     },
     "settings": {

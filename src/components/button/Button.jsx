@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
+import './Button.scss';
 
 const Button = (props) => {
-  const { disabled, buttonType, handleClick, children } = props;
+  const { disabled, handleClick, children } = props;
 
   return (
-    <button disabled={disabled} onClick={handleClick} className={`button ${buttonType && buttonType}`}>
+    <button disabled={disabled} onClick={handleClick} className="button">
       {children}
     </button>
   );
@@ -12,7 +13,6 @@ const Button = (props) => {
 
 Button.propTypes = {
   disabled: PropTypes.bool,
-  buttonType: PropTypes.string,
   children: PropTypes.string,
   handleClick: PropTypes.func,
 };
