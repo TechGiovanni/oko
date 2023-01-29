@@ -7,13 +7,22 @@ import './LoginOptions.scss';
 // import { LoginOptionsData } from '@components/auth/LoginOptions/LoginOptionsData';
 
 // components
-import LoginDefault from '@components/auth/features/login/LoginDefault';
+import LoginDefault from '@components/auth/features/loginDefault/LoginDefault';
 
 const LoginOptions = () => {
   const handleAuthPage = (title) => {
+    // if (title === 'email-username') {
+    //   return (
+    //     <>
+    //       {' '}
+    //       <LoginDefault handleAuthPage={handleAuthPage} />
+    //     </>
+    //   );
+    // }
+
     return (
       <>
-        <LoginDefault />
+        <LoginDefault handleAuthPage={handleAuthPage} />
       </>
     );
   };

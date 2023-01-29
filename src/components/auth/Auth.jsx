@@ -1,15 +1,24 @@
+import { useSelector } from 'react-redux';
+
 import PropTypes from 'prop-types';
+
+// styleSheet
 import '@components/auth/Auth.scss';
-import LoginOptions from '@components/auth/LoginOptions/LoginOptions';
+
+// components
+import LoginOptions from '@components/auth/loginOptions/LoginOptions';
+import RegisterOptions from '@components/auth/registerOptions/RegisterOptions';
 
 const Auth = ({ setOpenAuthTab }) => {
+  const showLoginOrRegister = useSelector((state) => state.loginOrRegisterTab.loginTab);
+
   const handleCloseAuthTabs = () => {
     setOpenAuthTab(false);
   };
 
   return (
     <div className="auth">
-      <LoginOptions />
+      {showLoginOrRegister ? <LoginOptions /> : <RegisterOptions />}
       <div className="auth-backdrop" onClick={handleCloseAuthTabs}></div>
     </div>
   );
