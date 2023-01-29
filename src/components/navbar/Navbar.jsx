@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import './Navbar.scss';
@@ -7,13 +7,20 @@ import './Navbar.scss';
 import logo from '@assets/images/logo2.svg';
 import Button from '@components/button/Button';
 import { FaEllipsisV } from 'react-icons/fa';
+import DarkMode from '@components/navbar/darkmode/DarkMode';
+import Auth from '@components/auth/Auth';
 
 const Navbar = () => {
+  const [openAuthTab, setOpenAuthTab] = useState(false);
+
   const handleLoginCLick = () => {
-    console.log('click');
+    console.log('clicking');
+    setOpenAuthTab(true);
   };
+
   return (
     <div>
+      {openAuthTab && <Auth setOpenAuthTab={setOpenAuthTab} />}
       <nav className="navbar">
         <div className="navbar-container">
           <div className="logo-container">
@@ -23,11 +30,15 @@ const Navbar = () => {
             <input type="text" placeholder="Search accounts" />
           </div>
           <div className="nav-buttons">
-            <button>hello</button>
             <Button disabled={false} buttonColor="primary" handleClick={handleLoginCLick}>
               Login
             </Button>
-            <FaEllipsisV></FaEllipsisV>
+            <div className="menu-items">
+              <FaEllipsisV className="navbar-three-dots"></FaEllipsisV>
+              <div className="dropdown-menu">
+                <DarkMode />
+              </div>
+            </div>
           </div>
         </div>
       </nav>

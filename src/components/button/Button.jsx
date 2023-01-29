@@ -5,7 +5,7 @@ const Button = (props) => {
   const { disabled, handleClick, children } = props;
 
   return (
-    <button disabled={disabled} onClick={handleClick}>
+    <button disabled={disabled} onClick={handleClick} className="button">
       {children}
     </button>
   );
@@ -13,7 +13,6 @@ const Button = (props) => {
 
 Button.propTypes = {
   disabled: PropTypes.bool,
-  // buttonColor: PropTypes.string,
   children: PropTypes.string,
   handleClick: PropTypes.func,
 };
