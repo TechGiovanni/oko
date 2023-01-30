@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 // stylesheet
 import '@components/auth/features/loginDefault/LoginDefault.styles.scss';
@@ -9,25 +10,44 @@ import { LoginOptionsData } from '@components/auth/features/loginDefault/LoginOp
 
 // Reducer
 import { changeLoginOrRegister } from '@redux/reducers/loginOrRegister/loginRegister.reducer';
+// import Login from '@pages/auth/login/login';
 
 const LoginDefault = (props) => {
+  const { setOpenAuthModal } = props;
   const dispatch = useDispatch();
-  const { handleAuthPage } = props;
+  const navigate = useNavigate();
 
   const handleChangeToRegisterTab = () => {
     // console.log('');
     dispatch(changeLoginOrRegister({ loginTab: false }));
   };
 
+  const handleSignInOptions = (title) => {
+    console.log('LoginDefault:', title.target.textContent);
+    const itemTitle = title.target.textContent;
+    // setSignInOption(title.target.textContent);
+
+    if (itemTitle === 'Use Email / Username') {
+      dispatch(changeLoginOrRegister({ loginTab: false }));
+      setOpenAuthModal(false);
+      return navigate('/auth/login');
+    }
+  };
+
   return (
     <>
       <div className="auth-title">
-        <h2>Log in to KooKiverse</h2>
+        <h2>Log in to FanFizzle</h2>
       </div>
-      <div className="margin-top">
+      <div className="margin-top full-height">
         {LoginOptionsData.map((item) => {
           return (
-            <div onClick={handleAuthPage(item.title)} className="auth-option" key={item.id}>
+            <div
+              onClick={handleSignInOptions}
+              title={item.title}
+              className={`auth-option ${item.disabled}`}
+              key={item.id}
+            >
               <img src={item.image && item.image} />
               <span>{item.content}</span>
             </div>
@@ -47,8 +67,7 @@ const LoginDefault = (props) => {
   );
 };
 LoginDefault.propTypes = {
-  handleAuthPage: PropTypes.func,
-  showRegister: PropTypes.func,
+  setOpenAuthModal: PropTypes.func,
 };
 
 export default LoginDefault;

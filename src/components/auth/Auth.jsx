@@ -1,6 +1,7 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import PropTypes from 'prop-types';
+// reducer
+import { closeAuthModal } from '@redux/reducers/loginModal/loginModal.reducer';
 
 // styleSheet
 import '@components/auth/Auth.scss';
@@ -9,11 +10,12 @@ import '@components/auth/Auth.scss';
 import LoginOptions from '@components/auth/loginOptions/LoginOptions';
 import RegisterOptions from '@components/auth/registerOptions/RegisterOptions';
 
-const Auth = ({ setOpenAuthTab }) => {
+const Auth = () => {
+  const dispatch = useDispatch();
   const showLoginOrRegister = useSelector((state) => state.loginOrRegisterTab.loginTab);
 
   const handleCloseAuthTabs = () => {
-    setOpenAuthTab(false);
+    dispatch(closeAuthModal({ authModalState: false }));
   };
 
   return (
@@ -22,10 +24,6 @@ const Auth = ({ setOpenAuthTab }) => {
       <div className="auth-backdrop" onClick={handleCloseAuthTabs}></div>
     </div>
   );
-};
-
-Auth.propTypes = {
-  setOpenAuthTab: PropTypes.func,
 };
 
 export default Auth;

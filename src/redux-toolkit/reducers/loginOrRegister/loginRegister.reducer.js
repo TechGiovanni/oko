@@ -15,7 +15,7 @@ const loginOrRegisterSlice = createSlice({
   },
 });
 // Three arguments
-// name - jut the name of the reducer. this will be the key in the store
+// name - just the name of the reducer. this will be the key in the store
 // an object the the initial state
 // the reducers - an object, We define multiple functions to add user data to the store or delete or update. we will get the payload. now we need to set the payload to the state, so we do state.loginTab = loginTab. OOnce called just pas in the payload
 

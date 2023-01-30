@@ -1,12 +1,16 @@
-import React from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+
+// stylesheet
+import '@components/auth/features/registerDefault/RegisterDefault.styles.scss';
 
 // Data
 import { RegisterOptionsData } from '@components/auth/features/registerDefault/RegisterOptionsData';
-import { changeLoginOrRegister } from '@redux/reducers/loginOrRegister/loginRegister.reducer';
-import { useDispatch } from 'react-redux';
 
-const RegisterDefault = ({ handleAuthPage, showLogin }) => {
+// Reducer
+import { changeLoginOrRegister } from '@redux/reducers/loginOrRegister/loginRegister.reducer';
+
+const RegisterDefault = ({ handleAuthPage }) => {
   const dispatch = useDispatch();
 
   const handleChangeToLoginTab = () => {
@@ -16,24 +20,26 @@ const RegisterDefault = ({ handleAuthPage, showLogin }) => {
   return (
     <>
       <div className="auth-title">
-        <h2>Sign up for KooKiverse</h2>
+        <h2>Sign up for FanFizzle</h2>
       </div>
-      <div>
+      <div className="margin-top full-height">
         {RegisterOptionsData.map((item) => {
           return (
-            <div onClick={handleAuthPage(item.title)} className="auth-option" key={item.id}>
+            <div onClick={() => handleAuthPage(item.title)} className={`auth-option ${item.disabled}`} key={item.id}>
               <img src={item.image && item.image} />
               <span>{item.content}</span>
             </div>
           );
         })}
       </div>
-      <div>
-        <hr />
-        <span>
-          have an account?
-          <span onClick={handleChangeToLoginTab}> Login</span>
-        </span>
+      <div className="register-footer">
+        {/* <hr /> */}
+        <div className="divider-footer">
+          <p>
+            Already have an account?
+            <span onClick={handleChangeToLoginTab}> Login</span>
+          </p>
+        </div>
       </div>
     </>
   );
@@ -41,7 +47,6 @@ const RegisterDefault = ({ handleAuthPage, showLogin }) => {
 
 RegisterDefault.propTypes = {
   handleAuthPage: PropTypes.func,
-  showLogin: PropTypes.func,
 };
 
 export default RegisterDefault;

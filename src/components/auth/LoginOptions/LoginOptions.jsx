@@ -1,37 +1,42 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
 
 // stylesheet
 import './LoginOptions.scss';
 
-// Data
-// import { LoginOptionsData } from '@components/auth/LoginOptions/LoginOptionsData';
-
 // components
 import LoginDefault from '@components/auth/features/loginDefault/LoginDefault';
+// import Login from '@pages/auth/login/login';
 
-const LoginOptions = () => {
-  const handleAuthPage = (title) => {
-    // if (title === 'email-username') {
-    //   return (
-    //     <>
-    //       {' '}
-    //       <LoginDefault handleAuthPage={handleAuthPage} />
-    //     </>
-    //   );
-    // }
+const LoginOptions = ({ setOpenAuthModal }) => {
+  const [_signInOption, setSignInOption] = useState('hellos');
+  const [initialLoginView, _setInitialLoginView] = useState(
+    <LoginDefault setSignInOption={setSignInOption} setOpenAuthModal={setOpenAuthModal} />
+  );
+  // const navigate = useNavigate();
 
-    return (
-      <>
-        <LoginDefault handleAuthPage={handleAuthPage} />
-      </>
-    );
-  };
+  // const handleAuthPage = (signInOption) => {
+  //   if (signInOption === 'Use Email / Username') {
+  //     return <Login></Login>;
+  //   }
+  //   return (
+  //     <>
+  //       <LoginDefault setSignInOption={setSignInOption} />
+  //     </>
+  //   );
+  // };
+  // handleAuthPage();
 
   return (
     <>
-      <div className="authentication-container">{handleAuthPage()}</div>
+      <div className="authentication-container">{initialLoginView}</div>
     </>
   );
+};
+
+LoginOptions.propTypes = {
+  setOpenAuthModal: PropTypes.func,
 };
 
 export default LoginOptions;
