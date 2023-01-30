@@ -3,6 +3,7 @@ import { useRoutes } from 'react-router-dom';
 import Navbar from '@components/navbar/Navbar';
 import Login from '@pages/auth/login/Login';
 import Register from '@pages/auth/register/Register';
+import ForgotPassword from '@pages/auth/forgotPassword/ForgotPassword';
 
 export const AppRouter = () => {
   const element = useRoutes([
@@ -11,12 +12,16 @@ export const AppRouter = () => {
       element: <Navbar />,
       children: [
         {
-          path: '/auth/login',
+          path: 'auth/login',
           element: <Login />,
         },
         {
-          path: '/auth/register',
+          path: 'auth/register',
           element: <Register />,
+        },
+        {
+          path: 'auth/password-reset',
+          element: <ForgotPassword />,
         },
       ],
     },

@@ -54,7 +54,6 @@ const Navbar = () => {
             <input type="text" placeholder="Search accounts" />
           </div>
           <div className="nav-buttons">
-            <button onClick={handleOpenAuthModal}>Button</button>
             <Button disabled={false} buttonColor="primary" handleClick={handleOpenAuthModal}>
               Login
             </Button>

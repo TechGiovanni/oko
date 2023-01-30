@@ -10,7 +10,6 @@ import { authService } from '@services/api/auth/auth.service';
 
 const initialDefaultFields = {
   email: '',
-  password: '',
 };
 
 const AuthBackground = styled.div`
@@ -23,26 +22,23 @@ const AuthBackground = styled.div`
   height: calc(100vh - 6.6vh);
 `;
 
-const Login = () => {
+const ForgotPassword = () => {
   const [inputFields, setInputFields] = useState(initialDefaultFields);
   const [btnColor, _setBtnColor] = useState('btnDisabled');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { email, password } = inputFields;
+  const { email } = inputFields;
   const dispatch = useDispatch();
 
-  const handleGoBackClick = () => {
-    navigate('/');
+  const handleGoBackToLogin = () => {
+    navigate('/auth/login');
   };
 
   const handleChangeToRegister = () => {
     navigate('/auth/register');
   };
-  const handleForgotPassword = () => {
-    navigate('/auth/password-reset');
-  };
 
-  const handleLoginInputChange = (event) => {
+  const handleInputChange = (event) => {
     console.log('target: ', event.target);
     const { name, value } = event.target;
     setInputFields({ ...inputFields, [name]: value });
@@ -51,11 +47,13 @@ const Login = () => {
   const handleLoginSubmit = async (event) => {
     setLoading(true);
     event.preventDefault();
-    const { email, password } = inputFields;
-    console.log('inputFields', inputFields, email, password);
+    const { email } = inputFields;
+    console.log('inputFields', inputFields, email);
     try {
-      const response = await authService.signIn(inputFields);
+      const response = await authService.forgotPassword(inputFields);
+
       console.log('sent:', response);
+      console.log('sent');
     } catch (error) {
       console.log('error', error);
     }
@@ -68,38 +66,19 @@ const Login = () => {
   return (
     <AuthBackground>
       <div className="authentication-container z-index-normal">
-        <FaArrowLeft onClick={handleGoBackClick} className="auth-back-button" />
+        <FaArrowLeft onClick={handleGoBackToLogin} className="auth-back-button" />
         <div className="auth-title">
-          <h2>Log in to FanFizzle</h2>
+          <h2>Reset Your Password</h2>
         </div>
         <form className="auth-form" onSubmit={handleLoginSubmit}>
           <div className="auth-form-fields">
             <div>
               <label>Email:</label>
-              <input type="email" name="email" id="email" value={email} onChange={handleLoginInputChange} />
-            </div>
-            <div>
-              <label>Password:</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                value={password}
-                onChange={handleLoginInputChange}
-                required
-              />
-            </div>
-            <div className="register-footer">
-              <div className="divider-footer">
-                <p>
-                  Forgot Password?
-                  <span onClick={handleForgotPassword}> Reset</span>
-                </p>
-              </div>
+              <input type="email" name="email" id="email" value={email} onChange={handleInputChange} />
             </div>
           </div>
-          <button className={`button ${!password || !email ? btnColor : ''}`} disabled={!password || !email}>{`${
-            loading ? 'LOGIN IN PROGRESS...' : 'LOGIN'
+          <button className={`button ${!email ? btnColor : ''}`} disabled={!email}>{`${
+            loading ? 'SENDING EMAIL IN PROGRESS...' : 'EMAIL'
           }`}</button>
         </form>
         <div className="register-footer">
@@ -115,33 +94,4 @@ const Login = () => {
   );
 };
 
-export default Login;
-
-/* <div className="authentication-container">
-<div className="auth-title">
-  <h2>Log in to FanFizzle</h2>
-</div>
-<div className="margin-top full-height">
-  {LoginOptionsData.map((item) => {
-    return (
-      <div
-        onClick={handleSignInOptions}
-        title={item.title}
-        className={`auth-option ${item.disabled}`}
-        key={item.id}
-      >
-        <img src={item.image && item.image} />
-        <span>{item.content}</span>
-      </div>
-    );
-  })}
-</div>
-<div className="register-footer">
-  <div className="divider-footer">
-    <p>
-      Don&apos;t have an account?
-      <span onClick={handleChangeToRegisterTab}> Sign Up</span>
-    </p>
-  </div>
-</div>
-</div> */
+export default ForgotPassword;

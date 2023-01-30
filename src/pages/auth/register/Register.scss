@@ -15,6 +15,7 @@
   font-size: 1.1rem;
   padding: 30px;
 
+
   .auth-form-fields{
     display: flex;
     flex-direction: column;
@@ -38,4 +39,7 @@
     }
   }
 
+  .btnDisabled {
+    background-color: rgb(209, 205, 205);
+  }
 }
