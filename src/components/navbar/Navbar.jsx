@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 // stylesheet
@@ -46,7 +46,9 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="navbar-container">
           <div className="logo-container">
-            <img src={logo} alt="" />
+            <Link to="/">
+              <img src={logo} alt="" />
+            </Link>
           </div>
           <div>
             <input type="text" placeholder="Search accounts" />

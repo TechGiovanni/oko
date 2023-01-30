@@ -7,8 +7,8 @@ import { closeAuthModal } from '@redux/reducers/loginModal/loginModal.reducer';
 import '@components/auth/Auth.scss';
 
 // components
-import LoginOptions from '@components/auth/loginOptions/LoginOptions';
-import RegisterOptions from '@components/auth/registerOptions/RegisterOptions';
+import LoginDefault from '@components/auth/features/loginDefault/LoginDefault';
+import RegisterDefault from '@components/auth/features/registerDefault/RegisterDefault';
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Auth = () => {
 
   return (
     <div className="auth">
-      {showLoginOrRegister ? <LoginOptions /> : <RegisterOptions />}
+      {showLoginOrRegister ? <LoginDefault /> : <RegisterDefault />}
       <div className="auth-backdrop" onClick={handleCloseAuthTabs}></div>
     </div>
   );

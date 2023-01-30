@@ -1,8 +1,8 @@
 import { useRoutes } from 'react-router-dom';
 
 import Navbar from '@components/navbar/Navbar';
-import Login from '@pages/auth/login/login';
-// import Home from '@pages/home/home';
+import Login from '@pages/auth/login/Login';
+import Register from '@pages/auth/register/Register';
 
 export const AppRouter = () => {
   const element = useRoutes([
@@ -13,6 +13,10 @@ export const AppRouter = () => {
         {
           path: '/auth/login',
           element: <Login />,
+        },
+        {
+          path: '/auth/register',
+          element: <Register />,
         },
       ],
     },

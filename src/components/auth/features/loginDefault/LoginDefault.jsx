@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 // stylesheet
@@ -10,64 +9,60 @@ import { LoginOptionsData } from '@components/auth/features/loginDefault/LoginOp
 
 // Reducer
 import { changeLoginOrRegister } from '@redux/reducers/loginOrRegister/loginRegister.reducer';
+import { closeAuthModal } from '@redux/reducers/loginModal/loginModal.reducer';
 // import Login from '@pages/auth/login/login';
 
-const LoginDefault = (props) => {
-  const { setOpenAuthModal } = props;
+const LoginDefault = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChangeToRegisterTab = () => {
-    // console.log('');
     dispatch(changeLoginOrRegister({ loginTab: false }));
   };
 
-  const handleSignInOptions = (title) => {
-    console.log('LoginDefault:', title.target.textContent);
-    const itemTitle = title.target.textContent;
-    // setSignInOption(title.target.textContent);
+  const handleSignInOptions = (event) => {
+    console.log('LoginDefault:', event.target.textContent);
+    const itemEvent = event.target.textContent;
 
-    if (itemTitle === 'Use Email / Username') {
+    if (itemEvent === 'Use Email / Username') {
       dispatch(changeLoginOrRegister({ loginTab: false }));
-      setOpenAuthModal(false);
+      dispatch(closeAuthModal({ authModalState: false }));
       return navigate('/auth/login');
     }
   };
 
   return (
     <>
-      <div className="auth-title">
-        <h2>Log in to FanFizzle</h2>
-      </div>
-      <div className="margin-top full-height">
-        {LoginOptionsData.map((item) => {
-          return (
-            <div
-              onClick={handleSignInOptions}
-              title={item.title}
-              className={`auth-option ${item.disabled}`}
-              key={item.id}
-            >
-              <img src={item.image && item.image} />
-              <span>{item.content}</span>
-            </div>
-          );
-        })}
-      </div>
-      <div className="register-footer">
-        {/* <hr /> */}
-        <div className="divider-footer">
-          <p>
-            Don&apos;t have an account?
-            <span onClick={handleChangeToRegisterTab}> Sign Up</span>
-          </p>
+      <div className="authentication-container">
+        <div className="auth-title">
+          <h2>Log in to FanFizzle</h2>
+        </div>
+        <div className="margin-top full-height">
+          {LoginOptionsData.map((item) => {
+            return (
+              <div
+                onClick={handleSignInOptions}
+                title={item.title}
+                className={`auth-option ${item.disabled}`}
+                key={item.id}
+              >
+                <img src={item.image && item.image} />
+                <span>{item.content}</span>
+              </div>
+            );
+          })}
+        </div>
+        <div className="register-footer">
+          <div className="divider-footer">
+            <p>
+              Don&apos;t have an account?
+              <span onClick={handleChangeToRegisterTab}> Sign Up</span>
+            </p>
+          </div>
         </div>
       </div>
     </>
   );
-};
-LoginDefault.propTypes = {
-  setOpenAuthModal: PropTypes.func,
 };
 
 export default LoginDefault;

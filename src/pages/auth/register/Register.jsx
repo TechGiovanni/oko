@@ -3,16 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { changeLoginOrRegister } from '@redux/reducers/loginOrRegister/loginRegister.reducer';
-import '@pages/auth/login/Login.scss';
+import '@pages/auth/register/Register.scss';
 import styled from 'styled-components';
 
 const initialDefaultFields = {
   username: '',
   email: '',
   password: '',
+  profileImage: '',
 };
 
-const Login = () => {
+const Register = () => {
   const [inputFields, setInputFields] = useState(initialDefaultFields);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -23,19 +24,20 @@ const Login = () => {
     navigate('/');
   };
 
-  const handleChangeToRegister = () => {
-    navigate('/auth/register');
+  const handleChangeToLogin = () => {
+    navigate('/auth/login');
   };
 
-  const handleLoginInputChange = (event) => {
+  const handleRegisterInputChange = (event) => {
     console.log('target: ', event.target);
     const { name, value } = event.target;
     setInputFields({ ...inputFields, [name]: value });
   };
 
-  const handleLoginSubmit = (event) => {
+  const handleRegisterSubmit = (event) => {
     setLoading(true);
     event.preventDefault();
+    console.log('hi');
   };
 
   useEffect(() => {
@@ -53,17 +55,18 @@ const Login = () => {
       <div className="authentication-container z-index-normal">
         <FaArrowLeft onClick={handleGoBackClick} className="auth-back-button" />
         <div className="auth-title">
-          <h2>Log in to FanFizzle</h2>
+          <h2>Sign up for FanFizzle</h2>
         </div>
-        <form className="auth-form" onSubmit={handleLoginSubmit}>
+
+        <form className="auth-form" onSubmit={handleRegisterSubmit}>
           <div className="auth-form-fields">
             <div>
               <label>Username:</label>
-              <input type="text" name="username" id="username" value={username} onChange={handleLoginInputChange} />
+              <input type="text" name="username" id="username" value={username} onChange={handleRegisterInputChange} />
             </div>
             <div>
               <label>Email:</label>
-              <input type="email" name="email" id="email" value={email} onChange={handleLoginInputChange} />
+              <input type="email" name="email" id="email" value={email} onChange={handleRegisterInputChange} />
             </div>
             <div>
               <label>Password:</label>
@@ -72,18 +75,20 @@ const Login = () => {
                 name="password"
                 id="password"
                 value={password}
-                onChange={handleLoginInputChange}
+                onChange={handleRegisterInputChange}
                 required
               />
             </div>
           </div>
-          <button disabled={false}>{`${loading ? 'LOGIN IN PROGRESS...' : 'LOGIN'}`}</button>
+          <button disabled={!username || !password || !email}>{`${
+            loading ? 'SIGNUP IN PROGRESS...' : 'SIGNUP'
+          }`}</button>
         </form>
         <div className="register-footer">
           <div className="divider-footer">
             <p>
-              Don&apos;t have an account?
-              <span onClick={handleChangeToRegister}> Sign Up</span>
+              Already have an account?
+              <span onClick={handleChangeToLogin}> Login</span>
             </p>
           </div>
         </div>
@@ -92,33 +97,4 @@ const Login = () => {
   );
 };
 
-export default Login;
-
-/* <div className="authentication-container">
-<div className="auth-title">
-  <h2>Log in to FanFizzle</h2>
-</div>
-<div className="margin-top full-height">
-  {LoginOptionsData.map((item) => {
-    return (
-      <div
-        onClick={handleSignInOptions}
-        title={item.title}
-        className={`auth-option ${item.disabled}`}
-        key={item.id}
-      >
-        <img src={item.image && item.image} />
-        <span>{item.content}</span>
-      </div>
-    );
-  })}
-</div>
-<div className="register-footer">
-  <div className="divider-footer">
-    <p>
-      Don&apos;t have an account?
-      <span onClick={handleChangeToRegisterTab}> Sign Up</span>
-    </p>
-  </div>
-</div>
-</div> */
+export default Register;
