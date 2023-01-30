@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import './Navbar.scss';
 
 // component
-import logo from '@assets/images/logo2.svg';
+import logo from '@assets/images/logo3.svg';
 import Button from '@components/button/Button';
 import { FaEllipsisV } from 'react-icons/fa';
 import DarkMode from '@components/navbar/darkmode/DarkMode';

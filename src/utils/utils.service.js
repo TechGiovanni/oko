@@ -1,5 +1,6 @@
 // import { changeLoginOrRegister } from '@redux/reducers/loginOrRegister/loginRegister.reducer';
 
+import { APP_ENVIRONMENT } from '@root/App';
 import { avatarColors } from '@utils/static.data';
 
 import { floor, random } from 'lodash';
@@ -8,6 +9,15 @@ export class UtilsService {
   // static dispatch(result, pageReload, dispatch, setUser) {
   //   dispatch(changeLoginOrRegister({ loginTab: false }));
   // }
+
+  static appEnvironment() {
+    if (APP_ENVIRONMENT === 'develop') {
+      return 'DEV';
+    }
+    if (APP_ENVIRONMENT === 'production') {
+      return 'PROD';
+    }
+  }
 
   // generate avatar colors
   static avatarColor() {

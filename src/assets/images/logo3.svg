@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <pattern id="pattern-0-0" patternTransform="matrix(1, 0, 0, 1, 225.591827, 187.043966)" xlink:href="#pattern-0"/>
+    <pattern x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse" viewBox="0 0 100 100" id="pattern-0">
+      <rect x="0" y="0" width="50" height="100" style="fill: black;"/>
+    </pattern>
+    <style>@import url(https://fonts.googleapis.com/css2?family=Akaya+Telivigala%3Aital%2Cwght%400%2C400&amp;display=swap);</style>
+    <style>@import url(https://fonts.googleapis.com/css2?family=Nabla%3Aital%2Cwght%400%2C400&amp;display=swap);</style>
+  </defs>
+  <path d="M 56.306 15.646 H 443.156 A 50 50 0 0 1 493.156 65.646 V 430.259 A 50 50 0 0 1 443.156 480.259 H 56.306 A 50 50 0 0 1 6.306 430.259 V 65.646 A 50 50 0 0 1 56.306 15.646 Z" style="fill: rgb(110, 97, 245); stroke-width: 9px; stroke-linecap: round; stroke-miterlimit: 50; stroke: rgb(255, 255, 255);"/>
+  <text style="fill: rgb(255, 3, 3); fill-rule: evenodd; font-family: &quot;Akaya Telivigala&quot;; font-size: 16.2px; font-weight: 700; paint-order: fill; text-transform: capitalize; white-space: pre;" transform="matrix(5.71404, 0.000048, -0.000089, 10.308187, -1117.621582, -1803.676514)" x="200.743" y="204.764"> </text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16.2px;" x="149.483" y="198.454" transform="matrix(1, 0, 0, 1, -145.686386, -106.01368)"> </text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16.2px;" x="92.956" y="193.995"> </text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16.2px;" x="439.767" y="256.582"> </text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16.2px;" x="339.895" y="361.283"> </text>
+  <text style="fill: url(#pattern-0-0); fill-rule: evenodd; font-family: &quot;Akaya Telivigala&quot;; font-size: 16.2px; font-weight: 700; paint-order: fill; text-transform: capitalize; white-space: pre;" transform="matrix(5.71404, 0.000048, -0.000089, 10.308187, -1120.274658, -1804.406494)" x="200.743" y="204.764"> </text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16.2px;" x="120.424" y="275.319"> </text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16.2px;" x="70.899" y="269.14"> </text>
+  <text style="fill: rgb(255, 255, 255); font-family: Nabla; font-size: 16.2px; font-weight: 900; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.86857px; white-space: pre;" transform="matrix(21.721352, 0.207846, -0.150855, 15.974448, -3615.991943, -3485.693848)" y="237.953" x="169.986">F</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16.2px;" x="148.328" y="382.631" transform="matrix(0.976295, 0, 0, 0.982742, 79.552597, -100.939232)"> </text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16.2px;" x="228.901" y="258.03" transform="matrix(1, 0, 0, 1, -145.686386, -106.01368)"> </text>
+  <text style="fill: rgb(255, 255, 255); font-family: Nabla; font-size: 16.2px; font-weight: 900; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.86857px; white-space: pre;" transform="matrix(20.547964, 0.196618, -0.162344, 17.191113, -3203.065918, -3763.081055)" x="169.986" y="237.953">F</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16.2px;" x="337.303" y="25.029"> </text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16.2px;" x="469.296" y="63.325"> </text>
+</svg>

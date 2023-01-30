@@ -24,7 +24,7 @@ const RegisterDefault = () => {
     const itemEvent = event.target.textContent;
 
     if (itemEvent === 'Use Email / Username') {
-      dispatch(changeLoginOrRegister({ loginTab: false }));
+      dispatch(changeLoginOrRegister({ loginTab: true }));
       dispatch(closeAuthModal({ authModalState: false }));
       return navigate('/auth/register');
     }

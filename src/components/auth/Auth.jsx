@@ -9,6 +9,7 @@ import '@components/auth/Auth.scss';
 // components
 import LoginDefault from '@components/auth/features/loginDefault/LoginDefault';
 import RegisterDefault from '@components/auth/features/registerDefault/RegisterDefault';
+import { changeLoginOrRegister } from '@redux/reducers/loginOrRegister/loginRegister.reducer';
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const Auth = () => {
 
   const handleCloseAuthTabs = () => {
     dispatch(closeAuthModal({ authModalState: false }));
+    dispatch(changeLoginOrRegister({ loginTab: true }));
   };
 
   return (
