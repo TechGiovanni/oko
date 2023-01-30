@@ -12,6 +12,12 @@ const initialDefaultFields = {
   password: '',
 };
 
+const AuthBackground = styled.div`
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+`;
+
 const Login = () => {
   const [inputFields, setInputFields] = useState(initialDefaultFields);
   const [loading, setLoading] = useState(false);
@@ -41,12 +47,6 @@ const Login = () => {
   useEffect(() => {
     dispatch(changeLoginOrRegister({ loginTab: false }));
   }, [dispatch]);
-
-  const AuthBackground = styled.div`
-    background-color: black;
-    width: 100%;
-    height: 100vh;
-  `;
 
   return (
     <AuthBackground>

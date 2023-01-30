@@ -13,6 +13,11 @@ const initialDefaultFields = {
   profileImage: '',
 };
 
+const AuthBackground = styled.div`
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+`;
 const Register = () => {
   const [inputFields, setInputFields] = useState(initialDefaultFields);
   const [loading, setLoading] = useState(false);
@@ -43,12 +48,6 @@ const Register = () => {
   useEffect(() => {
     dispatch(changeLoginOrRegister({ loginTab: false }));
   }, [dispatch]);
-
-  const AuthBackground = styled.div`
-    background-color: black;
-    width: 100%;
-    height: 100vh;
-  `;
 
   return (
     <AuthBackground>
