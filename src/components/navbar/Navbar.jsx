@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+// import { useState } from 'react';
+import { Outlet, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 // stylesheet
 import styled from 'styled-components';
@@ -12,6 +13,9 @@ import { FaEllipsisV } from 'react-icons/fa';
 import DarkMode from '@components/navbar/darkmode/DarkMode';
 import Auth from '@components/auth/Auth';
 
+// reducer
+import { closeAuthModal } from '@redux/reducers/loginModal/loginModal.reducer';
+
 const Backdrop = styled.div`
   position: fixed;
   top: 0;
@@ -23,30 +27,35 @@ const Backdrop = styled.div`
 `;
 
 const Navbar = () => {
-  const [openAuthTab, setOpenAuthTab] = useState(true);
+  // const [openAuthModal, setOpenAuthModal] = useState(true);
+  const dispatch = useDispatch();
+  const authModal = useSelector((state) => state.authModalName.authModalState);
 
-  const handleLoginCLick = () => {
-    setOpenAuthTab(true);
+  const handleOpenAuthModal = () => {
+    dispatch(closeAuthModal({ authModalState: true }));
   };
 
   return (
     <div>
       {' '}
-      {openAuthTab && (
+      {authModal && (
         <Backdrop>
-          <Auth setOpenAuthTab={setOpenAuthTab} />
+          <Auth />
         </Backdrop>
       )}
       <nav className="navbar">
         <div className="navbar-container">
           <div className="logo-container">
-            <img src={logo} alt="" />
+            <Link to="/">
+              <img src={logo} alt="" />
+            </Link>
           </div>
           <div>
             <input type="text" placeholder="Search accounts" />
           </div>
           <div className="nav-buttons">
-            <Button disabled={false} buttonColor="primary" handleClick={handleLoginCLick}>
+            <button onClick={handleOpenAuthModal}>Button</button>
+            <Button disabled={false} buttonColor="primary" handleClick={handleOpenAuthModal}>
               Login
             </Button>
             <div className="menu-items">

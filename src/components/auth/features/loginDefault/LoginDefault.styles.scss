@@ -1,0 +1,21 @@
+.register-footer{
+  margin-top: 25px;
+
+  div {
+    margin-top: 7px;
+  }
+
+  span {
+    color: rgb(226, 7, 44);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .divider-footer{
+    margin: 0;
+    border-top: 1px solid rgb(218, 214, 214);
+
+    p {
+      margin-top: 10px;
+    }
+  }
+}

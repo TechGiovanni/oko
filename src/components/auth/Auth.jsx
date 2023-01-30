@@ -1,22 +1,29 @@
-import PropTypes from 'prop-types';
-import '@components/auth/Auth.scss';
-import LoginOptions from '@components/auth/LoginOptions/LoginOptions';
+import { useSelector, useDispatch } from 'react-redux';
 
-const Auth = ({ setOpenAuthTab }) => {
+// reducer
+import { closeAuthModal } from '@redux/reducers/loginModal/loginModal.reducer';
+
+// styleSheet
+import '@components/auth/Auth.scss';
+
+// components
+import LoginDefault from '@components/auth/features/loginDefault/LoginDefault';
+import RegisterDefault from '@components/auth/features/registerDefault/RegisterDefault';
+
+const Auth = () => {
+  const dispatch = useDispatch();
+  const showLoginOrRegister = useSelector((state) => state.loginOrRegisterTab.loginTab);
+
   const handleCloseAuthTabs = () => {
-    setOpenAuthTab(false);
+    dispatch(closeAuthModal({ authModalState: false }));
   };
 
   return (
     <div className="auth">
-      <LoginOptions />
+      {showLoginOrRegister ? <LoginDefault /> : <RegisterDefault />}
       <div className="auth-backdrop" onClick={handleCloseAuthTabs}></div>
     </div>
   );
-};
-
-Auth.propTypes = {
-  setOpenAuthTab: PropTypes.func,
 };
 
 export default Auth;
