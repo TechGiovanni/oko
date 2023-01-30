@@ -1,20 +1,17 @@
 // import { changeLoginOrRegister } from '@redux/reducers/loginOrRegister/loginRegister.reducer';
 
-import { APP_ENVIRONMENT } from '@root/App';
 import { avatarColors } from '@utils/static.data';
 
 import { floor, random } from 'lodash';
 
 export class UtilsService {
-  // static dispatch(result, pageReload, dispatch, setUser) {
-  //   dispatch(changeLoginOrRegister({ loginTab: false }));
-  // }
+  static APP_ENVIRONMENT = 'develop';
 
   static appEnvironment() {
-    if (APP_ENVIRONMENT === 'develop') {
+    if (this.APP_ENVIRONMENT === 'develop') {
       return 'DEV';
     }
-    if (APP_ENVIRONMENT === 'production') {
+    if (this.APP_ENVIRONMENT === 'production') {
       return 'PROD';
     }
   }
@@ -50,4 +47,8 @@ export class UtilsService {
     // this is all I need to generate a canvas
     return canvas.toDataURL('image/png');
   }
+
+  // static dispatch(result, pageReload, dispatch, setUser) {
+  //   dispatch(changeLoginOrRegister({ loginTab: false }));
+  // }
 }
