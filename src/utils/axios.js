@@ -1,11 +1,11 @@
-import { APP_ENVIRONMENT } from '@root/App';
+import { UtilsService } from '@utils/utils.service';
 import axios from 'axios';
 
 export let BASE_ENDPOINT = '';
 
-if (APP_ENVIRONMENT === 'develop') {
+if (UtilsService.APP_ENVIRONMENT === 'develop') {
   BASE_ENDPOINT = 'http://localhost:5000';
-} else if (APP_ENVIRONMENT === 'production') {
+} else if (UtilsService.APP_ENVIRONMENT === 'production') {
   BASE_ENDPOINT = 'https://api.fanfizzleserver.space';
 }
 
