@@ -12,6 +12,7 @@
 /build
 .env
 .env.production
+jsconfig.json
 
 
 # misc
